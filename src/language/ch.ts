@@ -6,7 +6,7 @@ export default {
     },
     header_menu: {
         logout: '退出',
-        login: '登录',
+        login: '商户登录',
         language: '语言选择'
     },
     side_bar: {

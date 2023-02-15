@@ -6,7 +6,7 @@ export default {
     },
     header_menu: {
         logout: 'Logout',
-        login: 'Login',
+        login: 'Merchant Login',
         language: 'Language'
     },
     side_bar: {
