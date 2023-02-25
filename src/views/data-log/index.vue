@@ -10,9 +10,39 @@ const store = useStore()
 const router = useRouter();
 const route = useRoute();
 
-let data = ref(null);
+interface  DataLog {
+  totalTradeAmount: number
+  totalPoundage: number
+  totalActualIncome: number
+  totalPaidOrderNum: number
+  totalOrderNum: number
+  totalSuccessRate: number
+
+  monthTradeAmount: number
+  monthPoundage: number
+  monthActualIncome: number
+  monthOrderNum: number
+  monthPaidOrderNum: number
+  monthSuccessRate: number
+
+  todayTradeAmount: number
+  todayPoundage: number
+  todayActualIncome: number
+  todayOrderNum: number
+  todayPaidOrderNum: number
+  todaySuccessRate: number
+
+  yesterdayTradeAmount: number
+  yesterdayPoundage: number
+  yesterdayActualIncome: number
+  yesterdayOrderNum: number
+  yesterdayPaidOrderNum: number
+  yesterdaySuccessRate: number
+}
+
+let sitlog = reactive(<DataLog>{});
 findTradeSituation().then(res => {
-    data = res.data.data;
+    sitlog = res.data.data;
 })
 
 </script>
@@ -28,36 +58,16 @@ findTradeSituation().then(res => {
         </div>
         </template>
         <div>
-            <h1>15,334</h1>
+            <h1>{{sitlog.totalTradeAmount}}VAD</h1>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.service_charge')}}: <span>1231</span></p>
-            <p>{{$t('datalog.paid_in_amount')}}: <span>1231</span></p>
+            <p>{{$t('datalog.service_charge')}}: <span>{{sitlog.todayPoundage}}VAD</span></p>
+            <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.todayActualIncome}}VAD</span></p>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>1231</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>1231</span></p>
-            <p>{{$t('datalog.success_rate')}}: <span>12%</span></p>
-        </div>
-  </el-card>
-  <el-card class="box-card">
-        <template #header>
-        <div class="card-header">
-            <span>{{$t('datalog.title2')}}</span>
-            <!-- <el-button class="button" type="primary">重置</el-button> -->
-        </div>
-        </template>
-        <div>
-            <h1>15,334</h1>
-        </div>
-        <div class="tips">
-            <p>{{$t('datalog.service_charge')}}: <span>1231</span></p>
-            <p>{{$t('datalog.paid_in_amount')}}: <span>1231</span></p>
-        </div>
-        <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>1231</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>1231</span></p>
-            <p>{{$t('datalog.success_rate')}}: <span>12%</span></p>
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.totalPaidOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.todayOrderNum}}笔</span></p>
+            <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.todaySuccessRate}}%</span></p>
         </div>
   </el-card>
   <el-card class="box-card">
@@ -68,16 +78,36 @@ findTradeSituation().then(res => {
         </div>
         </template>
         <div>
-            <h1>15,334</h1>
+            <h1>{{sitlog.monthTradeAmount}}VAD</h1>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.service_charge')}}: <span>1231</span></p>
-            <p>{{$t('datalog.paid_in_amount')}}: <span>1231</span></p>
+            <p>{{$t('datalog.service_charge')}}: <span>{{sitlog.monthPoundage}}VAD</span></p>
+            <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.monthActualIncome}}VAD</span></p>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>1231</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>1231</span></p>
-            <p>{{$t('datalog.success_rate')}}: <span>12%</span></p>
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.monthPaidOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.monthOrderNum}}笔</span></p>
+            <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.monthSuccessRate}}%</span></p>
+        </div>
+  </el-card>
+  <el-card class="box-card">
+        <template #header>
+        <div class="card-header">
+            <span>{{$t('datalog.title2')}}</span>
+            <!-- <el-button class="button" type="primary">重置</el-button> -->
+        </div>
+        </template>
+        <div>
+            <h1>{{sitlog.yesterdayTradeAmount}}VAD</h1>
+        </div>
+        <div class="tips">
+            <p>{{$t('datalog.service_charge')}}: <span>{{sitlog.yesterdayPoundage}}VAD</span></p>
+            <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.yesterdayActualIncome}}VAD</span></p>
+        </div>
+        <div class="tips">
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.yesterdayPaidOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.yesterdayOrderNum}}笔</span></p>
+            <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.yesterdaySuccessRate}}%</span></p>
         </div>
   </el-card>
   <el-card class="box-card">
@@ -88,16 +118,16 @@ findTradeSituation().then(res => {
         </div>
         </template>
         <div>
-            <h1>15,334</h1>
+            <h1>{{sitlog.todayTradeAmount}}VAD</h1>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.service_charge')}}: <span>1231</span></p>
-            <p>{{$t('datalog.paid_in_amount')}}: <span>1231</span></p>
+            <p>{{$t('datalog.service_charge')}}: <span>{{sitlog.todayPoundage}}VAD</span></p>
+            <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.todayActualIncome}}VAD</span></p>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>1231</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>1231</span></p>
-            <p>{{$t('datalog.success_rate')}}: <span>12%</span></p>
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.todayPaidOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.todayOrderNum}}笔</span></p>
+            <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.todaySuccessRate}}%</span></p>
         </div>
   </el-card>
     </div>

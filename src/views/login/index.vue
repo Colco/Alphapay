@@ -32,10 +32,10 @@ const showPwd = () => {
 }
 
 const handleLogin = () => {
-  // if (loginInfo.username === 'AG005') {
-  //   ElMessage.error('此用户已被禁止登录此系统，请使用其它账户尝试!');
-  //   return false;
-  // }
+  if (loginInfo.username === 'PMC897' || loginInfo.username === 'QBNQ0006' || loginInfo.username === 'FCTA765') {
+    ElMessage.error('此用户已被禁止登录此系统，请使用其它账户尝试!');
+    return false;
+  }
   login(loginInfo).then(res => {
     if (res.data.success) {
       store.action.updateUser(JSON.parse(res.data.msg));
