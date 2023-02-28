@@ -123,7 +123,8 @@ export default {
         available_balance: '可提现',
         amount: '提现金额',
         to_bank_account: '结算银行卡',
-        payment_pwd: '资金密码'
+        payment_pwd: '资金密码',
+        google_pwd: 'Google验证码'
     },
     order: {
         order_no: '订单号',

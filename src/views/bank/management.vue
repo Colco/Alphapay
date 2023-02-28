@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive, toRaw } from "vue";
 import { ElMessage } from 'element-plus'
-import { findMerchantBankCardByMerchantId, addOrUpdateMerchantBankCard, deleteMerchantBankCard } from '~/api/api';
+import { findMerchantBankCardByNewMerchantId, addOrUpdateMerchantBankCard, deleteMerchantBankCard } from '~/api/api';
 import { Delete, Edit } from '@element-plus/icons-vue'
 import moment from "moment";
 
@@ -15,6 +15,11 @@ interface BankCard {
     id?: number
   }
 
+let pager = reactive({
+  pageNum: 1,
+  pageSize: 10,
+  total: 0
+})
 
 const loading = ref(false);
 
@@ -27,10 +32,21 @@ const submitForm = reactive(<BankCardEdit>{});
 
 const getList = () => {
   loading.value = true;
-  findMerchantBankCardByMerchantId().then((res : any) => {
-    tableData.value = res.data.data?.reverse();
+  findMerchantBankCardByNewMerchantId(pager).then((res : any) => {
+    tableData.value = res.data.data.content;
+    pager.total = res.data.data.total;
     loading.value = false;
   });
+}
+
+const handleSizeChange = (pageSize: number) => {
+    pager.pageSize = pageSize;
+    getList();
+}
+
+const handleCurrentChange = (pageNum: number) => {
+    pager.pageNum = pageNum;
+    getList();
 }
 
 const onEdit = (row: any) => {
@@ -103,6 +119,16 @@ getList();
       </template>
     </el-table-column>
   </el-table>
+  <div class="pager-box-cus" >
+      <el-pagination 
+        v-model:currentPage="pager.pageNum"
+        v-model:page-size="pager.pageSize"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        background 
+        layout="prev, pager, next" 
+        :total="pager.total" />
+  </div>
     <el-dialog
     v-model="dialogVisible"
     :title="$t('bank.edit_bank_card')"
