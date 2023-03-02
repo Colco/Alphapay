@@ -65,8 +65,8 @@ findTradeSituation().then(res => {
             <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.todayActualIncome}}VAD</span></p>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.totalPaidOrderNum}}笔</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.todayOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.totalPaidOrderNum}}</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.todayOrderNum}}</span></p>
             <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.todaySuccessRate}}%</span></p>
         </div>
   </el-card>
@@ -85,8 +85,8 @@ findTradeSituation().then(res => {
             <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.monthActualIncome}}VAD</span></p>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.monthPaidOrderNum}}笔</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.monthOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.monthPaidOrderNum}}</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.monthOrderNum}}</span></p>
             <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.monthSuccessRate}}%</span></p>
         </div>
   </el-card>
@@ -105,8 +105,8 @@ findTradeSituation().then(res => {
             <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.yesterdayActualIncome}}VAD</span></p>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.yesterdayPaidOrderNum}}笔</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.yesterdayOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.yesterdayPaidOrderNum}}</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.yesterdayOrderNum}}</span></p>
             <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.yesterdaySuccessRate}}%</span></p>
         </div>
   </el-card>
@@ -125,8 +125,8 @@ findTradeSituation().then(res => {
             <p>{{$t('datalog.paid_in_amount')}}: <span>{{sitlog.todayActualIncome}}VAD</span></p>
         </div>
         <div class="tips">
-            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.todayPaidOrderNum}}笔</span></p>
-            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.todayOrderNum}}笔</span></p>
+            <p>{{$t('datalog.order_quantity_paid')}}: <span>{{sitlog.todayPaidOrderNum}}</span></p>
+            <p>{{$t('datalog.order_quantity')}}: <span>{{sitlog.todayOrderNum}}</span></p>
             <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.todaySuccessRate}}%</span></p>
         </div>
   </el-card>
