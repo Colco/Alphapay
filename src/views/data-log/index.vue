@@ -94,6 +94,8 @@ findTradeSituation().then(res => {
             <p>{{$t('datalog.success_rate')}}: <span>{{sitlog.data.monthSuccessRate}}%</span></p>
         </div>
   </el-card>
+  </div>
+  <div class="card-box">
   <el-card v-loading="loading" class="box-card">
         <template #header>
         <div class="card-header">
@@ -142,9 +144,14 @@ findTradeSituation().then(res => {
 $bg:#2d3a4b;
 $dark_gray:#889aa4;
 $light_gray:#eee;
+.charts-box {
+    height: calc(100% - 80px);
+    overflow-y: scroll;
+}
 .card-box {
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     display: flex;
+    justify-content: space-between;
     h1 {
         color: #da3764;
     }
@@ -168,7 +175,7 @@ $light_gray:#eee;
     }
 }
 .el-card {
-    width: 270px;
-    margin-right: 20px;
+    width: 570px;
+    // margin-right: 20px;
 }
 </style>
